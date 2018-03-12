@@ -16,7 +16,7 @@ export default {
   }
 }
 </script>
-
+// http://html.mijnspeelplek.com/bulma1/templates/profile.html
 <style>
 .profile {
   margin-top: 50px;
