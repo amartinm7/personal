@@ -6,7 +6,7 @@
 <script>
 import mySection from './Section'
 export default {
-  name: 'container',
+  name: 'mycontainer',
   components: {'my-section': mySection}
 }
 </script>

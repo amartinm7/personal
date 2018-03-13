@@ -282,7 +282,7 @@
 </template>
 <script>
 export default {
-  name: 'nav',
+  name: 'mynav',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'

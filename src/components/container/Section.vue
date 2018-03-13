@@ -21,7 +21,7 @@
 <script>
 import contentful from '../../services/contentful'
 export default {
-  name: 'section',
+  name: 'mysection',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
@@ -30,10 +30,13 @@ export default {
     }
   },
   methods: {
-    getPersonalData: async function () {
-      let items = await contentful.getPersonalInfo()
-      console.log(items)
-      this.name = items[0].fields.name['en-US']
+    getPersonalData: function () {
+      console.log('getPersonalData')
+      contentful.getPersonalInfo().then((items) => {
+        console.log(items)
+        this.name = items[0].fields.name['en-US']
+        console.log(JSON.stringify(items))
+      }).catch(console.error)
     }
   },
   mounted: function () {
