@@ -61,7 +61,7 @@ export default {
       return (this.imgSrc + '?w=750')
     },
     currentDate: function () {
-      return moment().format('LLLL');
+      return moment().format('LLLL')
     }
   },
   methods: {
