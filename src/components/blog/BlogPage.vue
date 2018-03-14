@@ -23,7 +23,7 @@
           <div class="container">
             <div class="column is-full-desktop">
               <h1 class="blog-timestamp">
-                {{date}}
+                {{currentDate}}
               </h1>
               <h1 class="blog-title">
                 {{title}}
@@ -40,6 +40,7 @@
 </template>
 <script>
 import contentful from '@/services/contentful'
+import moment from 'moment'
 export default {
   name: 'BlogPage',
   data () {
@@ -52,13 +53,15 @@ export default {
       title: '',
       content: '',
       backgroundImageStyle: '',
-      imgSrc: '',
-      date: new Date()
+      imgSrc: ''
     }
   },
   computed: {
     smallImage: function () {
       return (this.imgSrc + '?w=750')
+    },
+    currentDate: function () {
+      return moment().format('LLLL');
     }
   },
   methods: {
