@@ -18,15 +18,38 @@ function getPersonalInfo () {
       console.log(space)
       space.getEntries({
         'content_type': 'contact',
-        'include': 3
+        'include': 5
       }).then((entries) => {
-        console.log(entries.items)
+        console.log('entries')
+        console.log(entries)
         resolve(entries.items)
       }).catch((err) => reject(err))
     }).catch((err) => reject(err))
   })
 }
+function getPersonalInfo2 () {
+  return new Promise(function (resolve, reject) {
+    getSpace().then((space) => {
+      console.log(space)
+      space.getEntry('2QFi6D9fG0s2YMqo0kmKQE')
+        .then((entry) => {
+          console.log('entry.item')
+          console.log(entry)
+          resolve(entry)
+        }).catch((err) => reject(err))
+    }).catch((err) => reject(err))
+  })
+}
+function getPicture (id) {
+  return new Promise(function (resolve, reject) {
+    getSpace().then((space) => {
+      space.getAsset(id).then((asset) => resolve(asset)).catch((error) => reject(error))
+    }).catch((error) => reject(error))
+  })
+}
 // export what you need here
 export default {
-  getPersonalInfo: getPersonalInfo
+  getPersonalInfo: getPersonalInfo,
+  getPersonalInfo2: getPersonalInfo2,
+  getPicture: getPicture
 }

@@ -7,7 +7,7 @@
 
       <div class="navbar-brand">
         <a class="navbar-item" href="https://bulma.io">
-          <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
+          <img :src="logoSrc" alt="holly shhh" width="112" height="28">
         </a>
 
         <a class="navbar-item is-hidden-desktop" href="https://github.com/jgthms/bulma" target="_blank">
@@ -285,7 +285,8 @@ export default {
   name: 'mynav',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Your Vue.js App',
+      logoSrc: '../../assets/cow.jpg'
     }
   }
 }

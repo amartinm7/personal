@@ -1,18 +1,18 @@
 <template>
   <div>
-    <nav-bar/>
-    <container></container>
+    <mynav/>
+    <mycontainer></mycontainer>
     <router-view/>
   </div>
 </template>
 <script>
-import mynav from './components/nav/Nav'
-import mycontainer from './components/container/Container'
+import mynav from '@/components/nav/Nav'
+import mycontainer from '@/components/container/Container'
 export default {
   name: 'App',
   components: {
-    'nav-bar': mynav,
-    'container': mycontainer
+    'mynav': mynav,
+    'mycontainer': mycontainer
   }
 }
 </script>
