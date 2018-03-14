@@ -40,6 +40,19 @@ function getPersonalInfo2 () {
     }).catch((err) => reject(err))
   })
 }
+function getBlogPage () {
+  return new Promise(function (resolve, reject) {
+    getSpace().then((space) => {
+      console.log(space)
+      space.getEntry('4LmUjxFPvicW4GG88UIMK4')
+        .then((entry) => {
+          console.log('entry.item')
+          console.log(entry)
+          resolve(entry)
+        }).catch((err) => reject(err))
+    }).catch((err) => reject(err))
+  })
+}
 function getPicture (id) {
   return new Promise(function (resolve, reject) {
     getSpace().then((space) => {
@@ -51,5 +64,6 @@ function getPicture (id) {
 export default {
   getPersonalInfo: getPersonalInfo,
   getPersonalInfo2: getPersonalInfo2,
+  getBlogPage: getBlogPage,
   getPicture: getPicture
 }
