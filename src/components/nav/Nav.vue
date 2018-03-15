@@ -6,8 +6,8 @@
     <div class="container">
 
       <div class="navbar-brand">
-        <a class="navbar-item" href="https://bulma.io">
-          <img :src="logoSrc" alt="holly shhh" width="112" height="28">
+        <a class="navbar-item" href="#">
+          <img src="@/assets/logo.png" alt="angry octopus" >
         </a>
 
         <a class="navbar-item is-hidden-desktop" href="https://github.com/jgthms/bulma" target="_blank">
@@ -247,8 +247,7 @@ export default {
   name: 'mynav',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App',
-      logoSrc: '../../assets/cow.jpg'
+      msg: 'Welcome to Your Vue.js App'
     }
   }
 }

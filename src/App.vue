@@ -1,7 +1,5 @@
 <template>
   <div>
-    <!--<mynav/>-->
-    <!--<mycontainer></mycontainer>-->
     <router-view/>
   </div>
 </template>

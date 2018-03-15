@@ -5,8 +5,8 @@
   </div>
 </template>
 <script>
-import mySection from './Section'
-import myGrid from './Grid'
+import mySection from '@/components/container/Section'
+import myGrid from '@/components/container/Grid'
 export default {
   name: 'mycontainer',
   components: {

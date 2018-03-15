@@ -19,7 +19,7 @@
   </div>
 </template>
 <script>
-import contentful from '../../services/contentful'
+import contentful from '@/services/contentful'
 export default {
   name: 'mysection',
   data () {

@@ -2,7 +2,7 @@
   <blogPage></blogPage>
 </template>
 <script>
-import blogPage from './blog/BlogPage'
+import blogPage from '@/components/blog/BlogPage'
 export default {
   name: 'Blog',
   components: {

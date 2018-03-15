@@ -4,7 +4,7 @@
   </div>
 </template>
 <script>
-import myCard from './Card'
+import myCard from '@/components/container/Card'
 export default {
   name: 'myGrid',
   components: {
