@@ -43,6 +43,7 @@ import contentful from '@/services/contentful'
 import moment from 'moment'
 export default {
   name: 'BlogPage',
+  props: ['item'],
   data () {
     return {
       styleObject: {
@@ -67,17 +68,13 @@ export default {
   methods: {
     getBlogPage: function () {
       let self = this
-      contentful.getBlogPage().then(item => {
-        console.log('item')
-        console.log(item)
-        this.title = item.fields.title['en-US']
-        this.content = item.fields.content['en-US']
-        this.coverTitle = item.fields.coverTitle['en-US']
-        this.coverDescription = item.fields.coverDescription['en-US']
-        contentful.getPicture(item.fields.cover['en-US'].sys.id).then((asset) => {
-          self.imgSrc = asset.fields.file['en-US'].url
-          self.backgroundImageStyle = { 'background-image': 'url("' + self.imgSrc + '")' }
-        }).catch(console.error)
+      this.title = this.item.fields.title['en-US']
+      this.content = this.item.fields.content['en-US']
+      this.coverTitle = this.item.fields.coverTitle['en-US']
+      this.coverDescription = this.item.fields.coverDescription['en-US']
+      contentful.getPicture(this.item.fields.cover['en-US'].sys.id).then((asset) => {
+        self.imgSrc = asset.fields.file['en-US'].url
+        self.backgroundImageStyle = { 'background-image': 'url("' + self.imgSrc + '")' }
       }).catch(console.error)
     }
   },

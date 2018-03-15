@@ -56,7 +56,7 @@ export default {
     }
   },
   mounted: function () {
-    this.getPersonalData()
+    // this.getPersonalData()
   }
 }
 </script>
