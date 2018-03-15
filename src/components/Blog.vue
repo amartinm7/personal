@@ -1,5 +1,5 @@
 <template>
-  <blogPage :item="item" v-if="item"></blogPage>
+  <blogPage :item="getItem" v-if="getItem"></blogPage>
 </template>
 <script>
 import blogPage from '@/components/blog/BlogPage'
@@ -11,7 +11,13 @@ export default {
   },
   data () {
     return {
-      item: ''
+      items: []
+    }
+  },
+  computed: {
+    getItem: function () {
+      console.log(this.$route.params.id)
+      return this.items[this.$route.params.id]
     }
   },
   methods: {
@@ -28,7 +34,8 @@ export default {
         //   self.imgSrc = asset.fields.file['en-US'].url
         //   self.backgroundImageStyle = { 'background-image': 'url("' + self.imgSrc + '")' }
         // }).catch(console.error)
-        self.item = items[0]
+        // self.item = items[0]
+        self.items = items
       }).catch(console.error)
     }
   },
