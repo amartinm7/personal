@@ -17,7 +17,7 @@ function getPersonalInfo () {
     getSpace().then((space) => {
       console.log(space)
       space.getEntries({
-        'content_type': 'contact',
+        'content_type': process.ENV.CONTENT_TYPE_BLOG_PAGE,
         'include': 5
       }).then((entries) => {
         console.log('entries')
