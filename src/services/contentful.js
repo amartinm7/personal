@@ -5,7 +5,6 @@ function createClient () {
   var client = contentful.createClient({
     accessToken: process.env.CMA_ACCESS_TOKEN
   })
-  console.log(client)
   return client
 }
 function getSpace () {

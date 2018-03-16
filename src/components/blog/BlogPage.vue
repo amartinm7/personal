@@ -51,7 +51,6 @@
         </div>
       </section>
     </div>
-    <router-view/>
   </div>
 </template>
 <!---->
@@ -99,13 +98,13 @@ export default {
       this.backToRight = this.getRight()
     },
     getLeft: function () {
-      if (this.index === 0) {
-        return '/blog/' + this.maxItems
+      if (Number(this.index) === 0) {
+        return '/blog/' + (Number(this.maxItems) - 1)
       }
       return '/blog/' + (Number(this.index) - 1)
     },
     getRight: function () {
-      if (this.index >= this.maxItems) {
+      if (Number(this.index) >= Number(this.maxItems)) {
         return '/blog/' + 0
       }
       return '/blog/' + (Number(this.index) + 1)

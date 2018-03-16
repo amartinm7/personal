@@ -34,6 +34,7 @@ export default {
   },
   mounted: function () {
     this.getBlogPages()
+    console.log('mounted getBlogPages...')
   }
 }
 </script>
