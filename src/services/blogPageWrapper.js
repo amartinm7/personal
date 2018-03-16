@@ -1,28 +1,24 @@
 function blogWrapper (item) {
-  let _item = item
+  const get = (p, o) => p.reduce((xs, x) => (xs && xs[x]) ? xs[x] : null, o)
 
-  function _getItem () {
-    return _item
+  const _getTitle = () => {
+    return get(['fields', 'title', 'en-US'], item)
   }
 
-  function _getTitle (item) {
-    return item.fields.title['en-US']
+  const _getContent = () => {
+    return get(['fields', 'content', 'en-US'], item)
   }
 
-  function _getContent (item) {
-    return item.fields.content['en-US']
+  const _getCover = () => {
+    return get(['fields', 'cover', 'en-US'], item)
   }
 
-  function _getCover (item) {
-    return item.fields.cover['en-US']
+  const _getCoverTitle = () => {
+    return get(['fields', 'coverTitle', 'en-US'], item)
   }
 
-  function _getCoverTitle (item) {
-    return item.fields.coverTitle['en-US']
-  }
-
-  function _getCoverDescription (item) {
-    return item.fields.coverDescription['en-US']
+  const _getCoverDescription = () => {
+    return get(['fields', 'coverDescription', 'en-US'], item)
   }
 
   return {
@@ -31,10 +27,11 @@ function blogWrapper (item) {
     getCover: _getCover,
     getCoverTitle: _getCoverTitle,
     getCoverDescription: _getCoverDescription,
-    getItem: _getItem
+    rawEntry: item
   }
 }
-
 export default {
-  blogWrapper: blogWrapper
+  getEntry: (entry) => {
+    return blogWrapper(entry)
+  }
 }

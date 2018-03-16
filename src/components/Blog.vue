@@ -26,15 +26,6 @@ export default {
       contentful.getBlogPages().then(items => {
         console.log('getBlogPages items...')
         console.log(items)
-        // this.title = item.fields.title['en-US']
-        // this.content = item.fields.content['en-US']
-        // this.coverTitle = item.fields.coverTitle['en-US']
-        // this.coverDescription = item.fields.coverDescription['en-US']
-        // contentful.getPicture(item.fields.cover['en-US'].sys.id).then((asset) => {
-        //   self.imgSrc = asset.fields.file['en-US'].url
-        //   self.backgroundImageStyle = { 'background-image': 'url("' + self.imgSrc + '")' }
-        // }).catch(console.error)
-        // self.item = items[0]
         self.items = items
       }).catch(console.error)
     }

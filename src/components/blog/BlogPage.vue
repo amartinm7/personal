@@ -68,11 +68,11 @@ export default {
   methods: {
     getBlogPage: function () {
       let self = this
-      this.title = this.item.fields.title['en-US']
-      this.content = this.item.fields.content['en-US']
-      this.coverTitle = this.item.fields.coverTitle['en-US']
-      this.coverDescription = this.item.fields.coverDescription['en-US']
-      contentful.getPicture(this.item.fields.cover['en-US'].sys.id).then((asset) => {
+      this.title = this.item.getTitle()
+      this.content = this.item.getContent()
+      this.coverTitle = this.item.getCoverTitle()
+      this.coverDescription = this.item.getCoverDescription()
+      contentful.getPicture(this.item.getCover().sys.id).then((asset) => {
         self.imgSrc = asset.fields.file['en-US'].url
         self.backgroundImageStyle = { 'background-image': 'url("' + self.imgSrc + '")' }
       }).catch(console.error)

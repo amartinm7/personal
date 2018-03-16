@@ -1,5 +1,5 @@
 import * as contentful from 'contentful-management'
-// import blogPageWrapper from './blogPageWrapper'
+import blogPageWrapper from './blogPageWrapper'
 // put here all functions
 function createClient () {
   var client = contentful.createClient({
@@ -40,22 +40,19 @@ function getBlogPages () {
           'order': '-sys.createdAt',
           'links_to_entry': user.id
         }).then(entries => {
-          // let blogPageWrappers = []
-          // if (entries && entries.items) {
-          //   entries.items.forEach(function (item) {
-          //     console.log('getBlogPages item')
-          //     console.log(item)
-          //     blogPageWrappers.push(blogPageWrapper(item))
-          //   })
-          // }
-          // console.log('getBlogPages blogPageWrappers')
-          // console.log(blogPageWrappers)
-          // resolve(blogPageWrappers)
-          // let blogPageWrappers = []
+          let blogPageWrappers = []
           if (entries && entries.items) {
-            resolve(entries.items)
+            entries.items.forEach(function (item) {
+              console.log('getBlogPages item')
+              console.log(item)
+              blogPageWrappers.push(blogPageWrapper.getEntry(item))
+            })
           }
-          reject(new Error('getBlogPages entries not found'))
+          resolve(blogPageWrappers)
+          // if (entries && entries.items) {
+          //   resolve(entries.items)
+          // }
+          // reject(new Error('getBlogPages entries not found'))
         }).catch(error => {
           console.error(error)
           reject(error)
