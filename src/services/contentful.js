@@ -1,5 +1,5 @@
 import * as contentful from 'contentful-management'
-import blogPageWrapper from './blogPageWrapper'
+import blogPageWrapper from '@/model/blogPageWrapper'
 // put here all functions
 function createClient () {
   var client = contentful.createClient({
