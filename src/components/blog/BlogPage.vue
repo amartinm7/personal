@@ -19,7 +19,15 @@
         </div>
       </nav>
       <section class="hero is-fullheight is-default is-bold">
+
         <div class="hero-body">
+          <div>
+            <div>
+              <router-link :to="backToLeft">
+                <i class="fa fa-angle-left"></i>
+              </router-link>
+            </div>
+          </div>
           <div class="container">
             <div class="column is-full-desktop">
               <h1 class="blog-timestamp">
@@ -33,17 +41,26 @@
               </h2>
             </div>
           </div>
+          <div>
+            <div>
+              <router-link :to="backToRight">
+                <i class="fa fa-angle-right"></i>
+              </router-link>
+            </div>
+          </div>
         </div>
       </section>
     </div>
+    <router-view/>
   </div>
 </template>
+<!---->
 <script>
 import contentful from '@/services/contentful'
 import moment from 'moment'
 export default {
   name: 'BlogPage',
-  props: ['item'],
+  props: ['item', 'maxItems', 'index'],
   data () {
     return {
       styleObject: {
@@ -54,7 +71,9 @@ export default {
       title: '',
       content: '',
       backgroundImageStyle: '',
-      imgSrc: ''
+      imgSrc: '',
+      backToLeft: '',
+      backToRight: ''
     }
   },
   computed: {
@@ -76,6 +95,20 @@ export default {
         self.imgSrc = asset.fields.file['en-US'].url
         self.backgroundImageStyle = { 'background-image': 'url("' + self.imgSrc + '")' }
       }).catch(console.error)
+      this.backToLeft = this.getLeft()
+      this.backToRight = this.getRight()
+    },
+    getLeft: function () {
+      if (this.index === 0) {
+        return '/blog/' + this.maxItems
+      }
+      return '/blog/' + (Number(this.index) - 1)
+    },
+    getRight: function () {
+      if (this.index >= this.maxItems) {
+        return '/blog/' + 0
+      }
+      return '/blog/' + (Number(this.index) + 1)
     }
   },
   mounted: function () {
