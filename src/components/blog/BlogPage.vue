@@ -75,6 +75,12 @@ export default {
       backToRight: ''
     }
   },
+  watch: {
+    item: function () {
+      // when the item changes we need to reload everything in this component
+      this.getBlogPage()
+    }
+  },
   computed: {
     smallImage: function () {
       return (this.imgSrc + '?w=750')
@@ -104,7 +110,7 @@ export default {
       return '/blog/' + (Number(this.index) - 1)
     },
     getRight: function () {
-      if (Number(this.index) >= Number(this.maxItems)) {
+      if (Number(this.index) >= (Number(this.maxItems) - 1)) {
         return '/blog/' + 0
       }
       return '/blog/' + (Number(this.index) + 1)

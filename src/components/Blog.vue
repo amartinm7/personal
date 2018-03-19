@@ -1,5 +1,5 @@
 <template>
-  <blogPage :item="getItem" v-if="getItem" :maxItems="maxItems" :index="index" ></blogPage>
+  <blogPage :item="item" v-if="item" :maxItems="maxItems" :index="index" ></blogPage>
 </template>
 <script>
 import blogPage from '@/components/blog/BlogPage'
@@ -12,15 +12,9 @@ export default {
   data () {
     return {
       items: [],
-      maxItems: 0
-    }
-  },
-  computed: {
-    getItem: function () {
-      return this.items[this.$route.params.id]
-    },
-    index: function () {
-      return this.$route.params.id
+      item: '',
+      maxItems: 0,
+      index: 0
     }
   },
   methods: {
@@ -29,8 +23,15 @@ export default {
       contentful.getBlogPages().then(items => {
         self.items = items
         self.maxItems = items.length
+        self.item = items[this.$route.params.id]
+        self.index = this.$route.params.id
       }).catch(console.error)
     }
+  },
+  beforeRouteUpdate (to, from, next) {
+    this.item = this.items[to.params.id]
+    this.index = to.params.id
+    next()
   },
   mounted: function () {
     this.getBlogPages()
