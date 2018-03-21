@@ -1,18 +1,19 @@
 {
-  "name": "personal",
+  "name": "personal-site",
   "version": "1.0.0",
-  "description": "A Vue.js project",
+  "description": "personal-site",
   "author": "amartinm7 <amartinm7@gmail.com>",
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
     "lint": "eslint --ext .js,.vue src",
-    "build": "node build/build.js"
+    "build": "node build/build.js",
+    "upload-to-S3": "gulp upload-to-s3"
   },
   "dependencies": {
     "bulma": "^0.6.2",
-    "contentful-management": "^4.2.2",
+    "contentful": "^5.1.3",
     "moment": "^2.21.0",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"

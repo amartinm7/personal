@@ -2,23 +2,23 @@ function blogWrapper (item) {
   const get = (p, o) => p.reduce((xs, x) => (xs && xs[x]) ? xs[x] : null, o)
 
   const _getTitle = () => {
-    return get(['fields', 'title', 'en-US'], item)
+    return get(['fields', 'title'], item)
   }
 
   const _getContent = () => {
-    return get(['fields', 'content', 'en-US'], item)
+    return get(['fields', 'content'], item)
   }
 
   const _getCover = () => {
-    return get(['fields', 'cover', 'en-US'], item)
+    return get(['fields', 'cover', 'fields', 'file', 'url'], item)
   }
 
   const _getCoverTitle = () => {
-    return get(['fields', 'coverTitle', 'en-US'], item)
+    return get(['fields', 'coverTitle'], item)
   }
 
   const _getCoverDescription = () => {
-    return get(['fields', 'coverDescription', 'en-US'], item)
+    return get(['fields', 'coverDescription'], item)
   }
 
   return {

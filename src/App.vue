@@ -4,13 +4,9 @@
   </div>
 </template>
 <script>
-import mynav from '@/components/nav/Nav'
-import mycontainer from '@/components/container/Container'
 export default {
   name: 'App',
   components: {
-    'mynav': mynav,
-    'mycontainer': mycontainer
   }
 }
 </script>

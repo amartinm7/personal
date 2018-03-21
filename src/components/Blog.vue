@@ -21,10 +21,11 @@ export default {
     getBlogPages: function () {
       let self = this
       contentful.getBlogPages().then(items => {
+        let _id = this.$route.params.id || 0
         self.items = items
         self.maxItems = items.length
-        self.item = items[this.$route.params.id]
-        self.index = this.$route.params.id
+        self.item = items[_id]
+        self.index = _id
       }).catch(console.error)
     }
   },

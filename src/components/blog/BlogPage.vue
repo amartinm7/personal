@@ -55,7 +55,6 @@
 </template>
 <!---->
 <script>
-import contentful from '@/services/contentful'
 import moment from 'moment'
 export default {
   name: 'BlogPage',
@@ -72,7 +71,8 @@ export default {
       backgroundImageStyle: '',
       imgSrc: '',
       backToLeft: '',
-      backToRight: ''
+      backToRight: '',
+      toLogin: '/login'
     }
   },
   watch: {
@@ -91,15 +91,12 @@ export default {
   },
   methods: {
     getBlogPage: function () {
-      let self = this
       this.title = this.item.getTitle()
       this.content = this.item.getContent()
       this.coverTitle = this.item.getCoverTitle()
       this.coverDescription = this.item.getCoverDescription()
-      contentful.getPicture(this.item.getCover().sys.id).then((asset) => {
-        self.imgSrc = asset.fields.file['en-US'].url
-        self.backgroundImageStyle = { 'background-image': 'url("' + self.imgSrc + '")' }
-      }).catch(console.error)
+      this.imgSrc = this.item.getCover()
+      this.backgroundImageStyle = { 'background-image': 'url("' + this.imgSrc + '")' }
       this.backToLeft = this.getLeft()
       this.backToRight = this.getRight()
     },
@@ -172,4 +169,9 @@ export default {
     font-weight:lighter;
     line-height: 1.5;
   }
+
+  .uxt-shopping-icon{
+    z-index:99;
+  }
+
 </style>
