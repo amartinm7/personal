@@ -8,5 +8,5 @@ module.exports = merge(prodEnv, {
   SPACE_ID: '"qzrr6u8rlzyb"',
   CONTENT_TYPE_USER: '"user"',
   CONTENT_TYPE_BLOG_PAGE: '"blogPage"',
-  USER_ID: '"amm-cv"'
+  USER_ID: '"story-blog"'
 })
