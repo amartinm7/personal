@@ -22,15 +22,11 @@
       <section class="hero is-fullheight is-default is-bold">
 
         <div class="hero-body">
-          <div>
-            <div>
-              <router-link :to="backToLeft">
-                <i class="fa fa-angle-left"></i>
-              </router-link>
-            </div>
-          </div>
           <div class="container">
             <div class="column is-full-desktop">
+              <router-link :to="backToLeft" class="a-link is-pulled-right float-icon">
+                <i class="fab fa-pied-piper-alt"></i>
+              </router-link>
               <h1 class="blog-timestamp">
                 {{currentDate}}
               </h1>
@@ -40,12 +36,8 @@
               <h2 class="blog-summary">
                 {{content}}
               </h2>
-            </div>
-          </div>
-          <div>
-            <div>
-              <router-link :to="backToRight">
-                <i class="fa fa-angle-right"></i>
+              <router-link :to="backToRight" class="a-link is-pulled-right float-icon">
+                <i class="fab fa-pied-piper-alt"></i>
               </router-link>
             </div>
           </div>
@@ -180,7 +172,7 @@ export default {
     line-height: 1.5;
   }
 
-  .uxt-shopping-icon{
+  .float-icon{
     z-index:99;
   }
   .fade-enter-active, .fade-leave-active {
@@ -188,5 +180,18 @@ export default {
   }
   .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
     opacity: 0;
+  }
+  a {
+    color: black;
+  }
+  .a-link {
+    width: 100px;
+    opacity: 0.5;
+    transition: 0.3s ease;
+    cursor: pointer;
+  }
+  .a-link:hover {
+    transform: scale(1.5, 1.5); /** default is 1, scale it to 1.5 */
+    opacity: 1;
   }
 </style>
