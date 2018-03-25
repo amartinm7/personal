@@ -1,6 +1,7 @@
 <template>
-  <div class="columns is-fullheight">
-    <div class="column left-side is-half-desktop is-hidden-touch is-full-mobile">
+  <transition name="fade">
+  <div class="columns is-fullheight" v-if="show">
+    <div v-if="show" class="column left-side is-half-desktop is-hidden-touch is-full-mobile">
       <section class="hero is-fullheight is-default is-bold">
         <div class="hero-body" v-bind:style="backgroundImageStyle">
           <div class="container has-text-centered">
@@ -10,7 +11,7 @@
         </div>
       </section>
     </div>
-    <div class="column right-side is-half-desktop is-full-mobile">
+    <div v-if="show" class="column right-side is-half-desktop is-full-mobile">
       <nav class="nav is-hidden-tablet">
         <div class="nav-left">
           <a class="nav-item is-brand" href="#">
@@ -52,6 +53,7 @@
       </section>
     </div>
   </div>
+  </transition>
 </template>
 <!---->
 <script>
@@ -72,7 +74,8 @@ export default {
       imgSrc: '',
       backToLeft: '',
       backToRight: '',
-      toLogin: '/login'
+      toLogin: '/login',
+      show: true
     }
   },
   watch: {
@@ -101,16 +104,23 @@ export default {
       this.backToRight = this.getRight()
     },
     getLeft: function () {
+      this.hideBlogPage()
       if (Number(this.index) === 0) {
         return '/blog/' + (Number(this.maxItems) - 1)
       }
       return '/blog/' + (Number(this.index) - 1)
     },
     getRight: function () {
+      this.hideBlogPage()
       if (Number(this.index) >= (Number(this.maxItems) - 1)) {
         return '/blog/' + 0
       }
       return '/blog/' + (Number(this.index) + 1)
+    },
+    hideBlogPage: function () {
+      let self = this
+      this.show = false
+      setTimeout(() => { self.show = true }, 1500) // el mismo valor que la opacidad en la transaccion
     }
   },
   mounted: function () {
@@ -173,5 +183,10 @@ export default {
   .uxt-shopping-icon{
     z-index:99;
   }
-
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity 1500ms;
+  }
+  .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
+  }
 </style>
