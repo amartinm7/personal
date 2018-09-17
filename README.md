@@ -8,7 +8,10 @@
 
 Proof of concept, integrating Contentful CMS with VUE. 
 Load in contentful static text and images in some content types previously created. 
-The VUE app use the Contentful CDA API to get the content and show it as a kind of carousel in a Single Page Application. 
+The VUE app use the Contentful CDA API to get the content and show it as a kind of carousel in a Single Page Application.
+Another part important is the transitions applied. Everytime you click on the next page you can see the transition 
+between the pages which is a nice effect.
+ 
 
 Deployed in: 
 https://amm-personal-site.netlify.com/#/blog/0
