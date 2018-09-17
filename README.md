@@ -12,9 +12,10 @@ The VUE app use the Contentful CDA API to get the content and show it as a kind 
 Another part important is the transitions applied. Everytime you click on the next page you can see the transition 
 between the pages which is a nice effect.
  
-
-Deployed in: 
+# See the application running online: 
 https://amm-personal-site.netlify.com/#/blog/0
+
+Keep in mind that the application was deployed using the pipeline included in to the package.json
 
 ## Build Setup
 
