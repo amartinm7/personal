@@ -15,7 +15,21 @@ between the pages which is a nice effect.
 # See the application running online: 
 https://amm-personal-site.netlify.com/#/blog/0
 
+Netlify is a cloud solution similar to AWS. You can connect your github code with netlify and every time you commit your code you can deploy the app automatically
+without doing any more than click a button. Works more or less like a webhook.
+
 Keep in mind that the application was deployed using the pipeline included in to the package.json
+
+To create the application to deploy do this:
+```npm
+npm run build
+``` 
+look in the dist folder and you'll the index.html and the dependencies:
+- three js files
+- one minified css
+
+Netlify uploads these files in its bucket and publish the html file.
+
 
 ## Build Setup
 
@@ -35,4 +49,5 @@ npm run build --report
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
+Screetshot of the results
 ![theLionAndTheKing](https://raw.githubusercontent.com/amartinm7/personal/master/theLionAndTheKing.png)
