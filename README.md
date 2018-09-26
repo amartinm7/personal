@@ -1,6 +1,5 @@
-![logo](https://cdn-images-1.medium.com/max/2000/1*nfvapd86apvGH-hNBYkYuw.png)
+![logo](https://images.ctfassets.net/8dqvb2hip5sk/2a8eOZEF4IMg82om0660Se/9a5f151e70d646d573dfaad6c3d3aa85/Slice_1.png)
 
-![logo](https://d33wubrfki0l68.cloudfront.net/92c7b4c3938bf70914c40c26c0b1e221ef558bf9/e8622/assets/images/logos/contentful-light.svg)
 
 # personal
 
